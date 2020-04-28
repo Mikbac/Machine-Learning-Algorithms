@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+#  Created by MikBac on 2020
+
 def getNGramTuples(words, n):
 	terms = []
 	for ngram in range(2, n + 1):

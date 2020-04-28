@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+#  Created by MikBac on 2020
+
 import re
 import string
 
