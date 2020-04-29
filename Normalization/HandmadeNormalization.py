@@ -5,7 +5,7 @@
 import re
 import string
 
-from Normalization.NGram import getNGramTuples
+from NGram.NGram import getNGramTuples
 
 
 def getHandmadeNormalization(d, ngram=1):

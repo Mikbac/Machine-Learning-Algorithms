@@ -4,8 +4,8 @@
 
 import re
 import string
-
 import unicodedata
+from NGram.NGram import getNGramTuples
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from nltk.stem import WordNetLemmatizer
@@ -14,7 +14,7 @@ from nltk.tokenize import word_tokenize, WhitespaceTokenizer
 stop_words = set(stopwords.words('english'))
 
 
-def getExperimentalNormalization(d):
+def getExperimentalNormalization(d, ngram=1):
 	d = unicodedata.normalize('NFKD', d).encode('ascii', 'ignore').decode('utf-8', 'ignore')
 	blankline_tokenizer = WhitespaceTokenizer()
 	stemmer = PorterStemmer()
@@ -88,5 +88,7 @@ def getExperimentalNormalization(d):
 	words2 = [word for word in words2 if not word in stopwords.words("english")]
 	words2 = [lemmatizer.lemmatize(word, pos="v") for word in words2]
 	words2 = [lemmatizer.lemmatize(word, pos="n") for word in words2]
+
+	words2 = getNGramTuples(words2, ngram)
 
 	return words2
