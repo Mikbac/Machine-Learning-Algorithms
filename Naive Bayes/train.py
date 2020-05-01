@@ -1,23 +1,27 @@
 #!/usr/bin/python3
-
+import json
 import pickle
 import sys
 
+sys.path.append(sys.path[0] + "/..")
 from Normalization.ExperimentalNormalization import getExperimentalNormalization
 
 
 def train():
-	documents_total = 0
-	skeptic_documents_total = 0
-	paranormal_documents_total = 0
+	with open('./settings.json') as f:
+		settings = json.load(f)
 
+	documents_total = 0
 	vocabulary = set()
 
-	skeptic_words_total = 0
-	paranormal_words_total = 0
+	variantOne_documents_total = 0
+	variantTwo_documents_total = 0
 
-	skeptic_count = {}
-	paranormal_count = {}
+	variantOne_words_total = 0
+	variantTwo_words_total = 0
+
+	variantOne_count = {}
+	variantTwo_count = {}
 
 	for line in sys.stdin:
 
@@ -31,36 +35,36 @@ def train():
 
 		documents_total += 1
 
-		if label == 'S':
-			skeptic_documents_total += 1
-			skeptic_words_total += len(terms)
+		if label == settings['variantOne']:
+			variantOne_documents_total += 1
+			variantOne_words_total += len(terms)
 			for term in terms:
-				if term in skeptic_count:
-					skeptic_count[term] += 1
+				if term in variantOne_count:
+					variantOne_count[term] += 1
 				else:
-					skeptic_count[term] = 1
-		else:
-			paranormal_documents_total += 1
-			paranormal_words_total += len(terms)
+					variantOne_count[term] = 1
+		elif label == settings['variantTwo']:
+			variantTwo_documents_total += 1
+			variantTwo_words_total += len(terms)
 			for term in terms:
-				if term in paranormal_count:
-					paranormal_count[term] += 1
+				if term in variantTwo_count:
+					variantTwo_count[term] += 1
 				else:
-					paranormal_count[term] = 1
+					variantTwo_count[term] = 1
 
-	pskeptic = skeptic_documents_total / documents_total
+	pVariantOne = variantOne_documents_total / documents_total
+	pVariantTwo = variantTwo_documents_total / documents_total
 	vocabulary_size = len(vocabulary)
 
-	model = (pskeptic,
-	         vocabulary_size,
-	         skeptic_words_total,
-	         paranormal_words_total,
-	         skeptic_count,
-	         paranormal_count)
+	model = (pVariantOne,
+	         pVariantTwo,
+	         variantOne_count,
+	         variantTwo_count,
+	         variantOne_words_total,
+	         variantTwo_words_total,
+	         vocabulary_size)
 
 	pickle.dump(model, open("model.pkl", "wb"))
-
-	print(paranormal_count)
 
 
 train()

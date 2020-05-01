@@ -5,7 +5,10 @@
 import re
 import string
 
-from NGram.NGram import getNGramTuples
+try:
+	from .NGram.NGram import getNGramTuples
+except:
+	from NGram.NGram import getNGramTuples
 
 
 def getHandmadeNormalization(d, ngram=1):

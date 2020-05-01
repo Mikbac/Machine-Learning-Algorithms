@@ -3,7 +3,11 @@
 #  Created by MikBac on 2020
 
 import unicodedata
-from NGram.NGram import getNGramTuples
+
+try:
+	from .NGram.NGram import getNGramTuples
+except:
+	from NGram.NGram import getNGramTuples
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from nltk.stem import WordNetLemmatizer

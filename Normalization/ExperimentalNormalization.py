@@ -5,7 +5,12 @@
 import re
 import string
 import unicodedata
-from NGram.NGram import getNGramTuples
+
+try:
+	from .NGram.NGram import getNGramTuples
+except:
+	from NGram.NGram import getNGramTuples
+
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from nltk.stem import WordNetLemmatizer
@@ -92,3 +97,6 @@ def getExperimentalNormalization(d, ngram=1):
 	words2 = getNGramTuples(words2, ngram)
 
 	return words2
+
+
+getExperimentalNormalization('123')
