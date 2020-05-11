@@ -20,7 +20,7 @@
     Out:
     ```
     ['givennn', 'an', 'array', 'arr', 'of', 'size', 'n', 'is']
-    ``
+    ```
 
 * getNLTKNormalization(string n, int nGram)
     ##### Example:
@@ -31,7 +31,7 @@
     Out:
     ```
     ['givennn', 'array', 'arr', 'size', 'n']
-    ``
+    ```
 ## n-grams
 * getNGramTuples(string_List words, int nGram)
     ##### Example:
