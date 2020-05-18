@@ -5,3 +5,8 @@
 
 ## Tools
 * Normalization
+
+## Examples (TODO)
+* kenlm
+* word2vec
+* fasttext
