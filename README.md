@@ -1,3 +1,5 @@
+![GitHub](https://img.shields.io/github/license/Mikbac/Machine-Learning-Algorithms)
+
 # Machine learning algorithms and tools
 
 ## Algorithms
