@@ -1,2 +1,3 @@
 .idea/**
 model.pkl
+/Examples/marian-nmt-CPU/marian/
