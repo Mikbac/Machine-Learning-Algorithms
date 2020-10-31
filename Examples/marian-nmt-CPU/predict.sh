@@ -1,3 +1,7 @@
+#!/bin/bash
+
+#  Created by MikBac on 2020
+
 # echo "Musimy powiedzieć nie" | ./marian/build/marian-decoder -m model.npz
 # echo "Musimy powiedzieć NIE," | ./marian/build/marian-decoder -m model.npz -v vocab.pl.yml vocab.en.yml --cpu-threads 3 --beam-size 1 --n-best
 # echo "Musimy powiedzieć nie" | ./marian/build/marian-decoder -m model.npz --cpu-threads 3

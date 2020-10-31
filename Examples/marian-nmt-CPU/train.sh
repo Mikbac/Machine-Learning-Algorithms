@@ -1,3 +1,7 @@
+#!/bin/bash
+
+#  Created by MikBac on 2020
+
 xzcat expected.tsv.xz | head -n 300 >expected.tsv &&
   xzcat in.tsv.xz | head -n 300 >in.tsv &&
 
