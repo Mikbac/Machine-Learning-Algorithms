@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-#  Created by MikBac on 2020
+# Created by MikBac on 2020
 
 import re
 import string
